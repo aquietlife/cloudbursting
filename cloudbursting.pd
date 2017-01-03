@@ -1,1 +1,64 @@
-#N canvas 213 161 450 300 10;
+#N canvas 496 29 848 698 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array cloudbursting 44100 float 2;
+#X coords 0 1 44100 -1 200 140 1;
+#X restore 549 46 graph;
+#X obj 103 12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 103 39 openpanel;
+#X msg 103 70 read -resize \$1 cloudbursting;
+#X obj 102 103 soundfiler;
+#X floatatom 117 133 12 0 0 0 - - -, f 12;
+#X obj 102 188 expr 44100 / $f1;
+#X obj 117 159 s sampleSize;
+#X floatatom 140 218 5 0 0 0 - - -, f 5;
+#X obj 103 254 phasor~;
+#X obj 102 309 *~;
+#X obj 137 282 r sampleSize;
+#X obj 102 347 tabread4~ cloudbursting;
+#X obj 95 562 dac~;
+#X obj 328 325 snapshot~;
+#X obj 329 296 metro 50;
+#X obj 330 265 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 327 354 12 0 0 0 - - -, f 12;
+#X floatatom 327 432 12 0 0 0 - - -, f 12;
+#X obj 328 402 /;
+#X obj 346 373 r sampleSize;
+#X obj 100 512 *~;
+#X obj 189 378 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 8000 1;
+#X obj 330 457 hsl 195 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 5034 1;
+#X obj 252 213 hsl 195 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8300 1;
+#X msg 249 189 1;
+#X floatatom 248 239 5 0 0 0 - - -, f 5;
+#X msg 44 217 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 6 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 1;
+#X connect 12 0 21 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 16 0 15 0;
+#X connect 17 0 19 0;
+#X connect 18 0 23 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 1;
+#X connect 21 0 13 0;
+#X connect 21 0 13 1;
+#X connect 22 0 21 1;
+#X connect 24 0 9 0;
+#X connect 24 0 26 0;
+#X connect 25 0 24 0;
+#X connect 27 0 9 0;
